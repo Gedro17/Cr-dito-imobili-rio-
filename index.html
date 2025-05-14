@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consórcio Imobiliário</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background-color: #0066cc;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background: #004c99;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section {
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .plans table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    .plans th, .plans td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+    .simulator input, .simulator button {
+      padding: 10px;
+      margin: 5px;
+      width: 100%;
+      max-width: 400px;
+    }
+    footer {
+      background: #eee;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Consórcio Imobiliário</h1>
+    <p>Conquiste seu imóvel com planejamento e sem juros!</p>
+  </header>
+  <nav>
+    <a href="#sobre">Sobre</a>
+    <a href="#planos">Planos</a>
+    <a href="#simulador">Simulador</a>
+    <a href="#contato">Contato</a>
+  </nav>
+  <section id="sobre">
+    <h2>O que é Consórcio Imobiliário?</h2>
+    <p>O consórcio imobiliário é uma alternativa para conquistar seu imóvel sem pagar juros. Você participa de um grupo de pessoas que contribuem mensalmente para formar um fundo comum, e mensalmente são realizadas contemplações por sorteio ou lance.</p>
+  </section>
+  <section id="planos" class="plans">
+    <h2>Planos Disponíveis</h2>
+    <table>
+      <tr>
+        <th>Crédito</th>
+        <th>Parcelas</th>
+        <th>Valor da Parcela</th>
+        <th>Taxa Administrativa</th>
+      </tr>
+      <tr>
+        <td>R$ 150.000</td>
+        <td>180x</td>
+        <td>R$ 1.200</td>
+        <td>16%</td>
+      </tr>
+      <tr>
+        <td>R$ 250.000</td>
+        <td>200x</td>
+        <td>R$ 1.850</td>
+        <td>15%</td>
+      </tr>
+    </table>
+  </section>
+  <section id="simulador" class="simulator">
+    <h2>Simule sua Cota</h2>
+    <input type="text" id="nome" placeholder="Seu nome" required>
+    <input type="text" id="valor" placeholder="Valor desejado (R$)">
+    <input type="text" id="prazo" placeholder="Prazo (meses)">
+    <button onclick="simularCota()">Simular</button>
+    <p id="resultado"></p>
+  </section>
+  <section id="contato">
+    <h2>Fale Conosco</h2>
+    <p>WhatsApp: <a href="https://wa.me/5599999999999" target="_blank">Clique aqui para conversar</a></p>
+    <p>Email: contato@consorcioimobiliario.com</p>
+  </section>
+  <footer>
+    <p>&copy; 2025 Consórcio Imobiliário. Todos os direitos reservados. CNPJ 00.000.000/0001-00</p>
+  </footer>
+
+  <a class="whatsapp" href="https://wa.me/5599999999999" target="_blank">Fale no WhatsApp</a>
+
+  <script>
+    function simularCota() {
+      const valor = parseFloat(document.getElementById('valor').value);
+      const prazo = parseInt(document.getElementById('prazo').value);
+      if (isNaN(valor) || isNaN(prazo) || valor <= 0 || prazo <= 0) {
+        document.getElementById('resultado').innerText = 'Preencha corretamente os campos.';
+        return;
+      }
+      const taxa = 0.15; // 15% administrativa
+      const total = valor * (1 + taxa);
+      const parcela = total / prazo;
+      document.getElementById('resultado').innerText = `Sua parcela estimada: R$ ${parcela.toFixed(2)}`;
+    }
+  </script>
+</body>
+</html>
